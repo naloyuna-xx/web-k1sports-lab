@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K1体育 · 简明使用指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', sans-serif;
+      background-color: #f7f3ed;  /* 米白基调，带一点暖 */
+      color: #2d2a24;
+      line-height: 1.65;
+      padding: 24px 16px;
+    }
+
+    .page-wrap {
+      max-width: 840px;
+      margin: 0 auto;
+      background: #fcf9f5;
+      border-radius: 32px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      padding: 40px 28px 48px;
+    }
+
+    @media (min-width: 600px) {
+      .page-wrap {
+        padding: 56px 48px 64px;
+      }
+    }
+
+    /* 标题区 */
+    .hero {
+      margin-bottom: 40px;
+      border-bottom: 2px solid #e6ddd2;
+      padding-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 450;
+      letter-spacing: -0.02em;
+      color: #2a2620;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #5b5549;
+      max-width: 70%;
+      margin: 0;
+    }
+
+    @media (max-width: 500px) {
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+      .hero p {
+        max-width: 100%;
+      }
+    }
+
+    /* 内文通用 */
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 460;
+      margin-top: 36px;
+      margin-bottom: 16px;
+      color: #302c25;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      margin-bottom: 1.2em;
+    }
+
+    /* 引用块 / 提示框 */
+    .tip-box {
+      background: #eeeae3;
+      border-left: 5px solid #c8bca8;
+      padding: 20px 24px;
+      margin: 28px 0;
+      border-radius: 0 16px 16px 0;
+      font-size: 0.98rem;
+    }
+
+    .tip-box strong {
+      display: block;
+      font-weight: 540;
+      color: #3b352e;
+      margin-bottom: 6px;
+    }
+
+    .highlight-card {
+      background: #ffffff;
+      border: 1px solid #e3dcd0;
+      border-radius: 20px;
+      padding: 22px 24px;
+      margin: 24px 0 32px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    }
+
+    .highlight-card ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px 24px;
+    }
+
+    .highlight-card ul li {
+      flex: 1 0 200px;
+      padding-left: 24px;
+      position: relative;
+      font-size: 1rem;
+    }
+
+    .highlight-card ul li::before {
+      content: "✦";
+      color: #b7a68e;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    /* 使用建议 + 场景 */
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 16px 0 20px;
+    }
+
+    @media (max-width: 540px) {
+      .scenario-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .scenario-item {
+      background: #f5f0ea;
+      border-radius: 18px;
+      padding: 16px 18px;
+    }
+
+    .scenario-item h4 {
+      font-weight: 480;
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+      color: #3b362e;
+    }
+
+    .scenario-item p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #555048;
+    }
+
+    /* 链接样式 */
+    a {
+      color: #4c6b8a;
+      text-decoration: none;
+      border-bottom: 1px solid #cbd7e3;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    a:hover {
+      border-bottom-color: #4c6b8a;
+      color: #1f3b57;
+    }
+
+    /* faq摘要 */
+    .faq-mini {
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 1px solid #e6ddd2;
+    }
+
+    .faq-mini details {
+      margin-bottom: 12px;
+      background: #f7f2ea;
+      border-radius: 14px;
+      padding: 10px 18px;
+    }
+
+    .faq-mini summary {
+      font-weight: 480;
+      cursor: pointer;
+      padding: 6px 0;
+      color: #2f2b24;
+    }
+
+    .faq-mini details p {
+      margin: 10px 0 4px;
+      padding-left: 8px;
+      color: #4d473f;
+    }
+
+    /* 脚注 */
+    .footer-note {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #ded7cc;
+      font-size: 0.85rem;
+      color: #70695e;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .footer-note span {
+      opacity: 0.7;
+    }
+
+    .btn-placeholder {
+      display: inline-block;
+      background: transparent;
+      border: 1px solid #c8bca8;
+      border-radius: 40px;
+      padding: 6px 18px;
+      font-size: 0.85rem;
+      color: #3f3a32;
+      cursor: default;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- hero -->
+  <div class="hero">
+    <h1>K1体育 · 一点指南</h1>
+    <p>把日常浏览变得更顺手——简明说明、访问提醒与场景建议</p>
+  </div>
+
+  <!-- 摘要 -->
+  <p><strong>K1体育</strong> 是一个围绕体育资讯与赛事内容展开的平台。如果你平时会花时间看看比赛集锦、翻翻运动相关消息，这里或许会成为一个顺手的去处。下面这份内容，会从特点、使用场景到访问提醒，帮你快速了解。</p>
+
+  <!-- 提示框：访问提醒 -->
+  <div class="tip-box">
+    <strong>访问前的小提醒</strong>
+    了解一个网站最好的方式，就是直接去看看。不过也建议你留意：始终通过自己信任的网络环境打开，并保持浏览器与系统为较新版本。如果你对任何内容有疑问，可以先看看站内的帮助说明。<br>
+    你可以从这里开始：<a href="https://web-k1sports.com">K1体育</a> —— 一个链接直达。
+  </div>
+
+  <!-- 亮点卡片 -->
+  <h2>几个实用特点</h2>
+  <div class="highlight-card">
+    <ul>
+      <li>内容以体育赛事信息为主，覆盖面比较广</li>
+      <li>页面结构干净，资讯归类相对清晰</li>
+      <li>适合日常快速浏览，不拖沓</li>
+      <li>移动端适配体验友好，通勤时也方便</li>
+    </ul>
+  </div>
+
+  <!-- 使用建议 + 场景 -->
+  <h2>使用建议与场景</h2>
+  <p>下面几个场景是我个人觉得挺合适的，不一定适用于所有人，但可以作为参考：</p>
+  <div class="scenario-grid">
+    <div class="scenario-item">
+      <h4>午间休息</h4>
+      <p>吃饭或者喝咖啡的时候，快速打开 <a href="https://web-k1sports.com">K1体育</a> 看一眼当日热点，不用花太多时间，就能知道大概发生了哪些事。</p>
+    </div>
+    <div class="scenario-item">
+      <h4>赛前速览</h4>
+      <p>如果马上有场比赛要看，提前翻翻近期的交锋记录或阵容消息，做到心里有数。5‑10 分钟足够。</p>
+    </div>
+    <div class="scenario-item">
+      <h4>周末刷手机</h4>
+      <p>窝在沙发里，随便划划页面，遇到感兴趣的点进去读一读，节奏由自己控制。</p>
+    </div>
+    <div class="scenario-item">
+      <h4>碎片信息整理</h4>
+      <p>不喜欢用社交平台刷资讯？直接访问体育类站点，信息更集中，干扰也少一些。</p>
+    </div>
+  </div>
+
+  <!-- 一个自然嵌入链接的段落 -->
+  <p>另外，如果你是第一次接触 <a href="https://web-k1sports.com">K1体育</a> ，建议先花几分钟四处翻翻，看看栏目划分和内容风格是不是符合自己的习惯。每个人对「好用」的定义不一样，自己试过才最清楚。</p>
+
+  <!-- FAQ 摘要 -->
+  <div class="faq-mini">
+    <h2>常见疑问（简要版）</h2>
+    <details>
+      <summary>这个网站主要关注哪些体育项目？</summary>
+      <p>以足球、篮球、网球等主流项目为主，也有部分小众赛事资讯，内容较丰富。</p>
+    </details>
+    <details>
+      <summary>需要注册才能浏览吗？</summary>
+      <p>大部分内容可以直接查看，部分互动或个性化功能可能需要注册，具体可以到站内确认。</p>
+    </details>
+    <details>
+      <summary>内容更新频率怎么样？</summary>
+      <p>日常更新，比赛日期间信息更新比较快，非比赛日也会有总结或前瞻类内容。</p>
+    </details>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer-note">
+    <span>内容仅供参考 · 请自行判断信息准确性</span>
+    <span class="btn-placeholder">K1体育</span>
+  </div>
+
+  <!-- 隐式保持种子变化即可，不在页面显示 -->
+</div>
+</body>
+</html>
